@@ -47,24 +47,23 @@ jobs:
           aws-region: ${{ inputs.aws-region }}
 
       - name: Terraform Init
-        run: |
-          terraform init \
-            -backend-config="bucket=${{ inputs.aws-statefile-s3-bucket }}" \
-            -backend-config="key=${{ inputs.aws-statefile-key }}" \
-            -backend-config="region=${{ inputs.aws-region }}" \
-            -backend-config="dynamodb_table=${{ inputs.aws-lock-dynamodb-table }}"
+        run: terraform -chdir=terraform init \
+          -backend-config="bucket=${{ inputs.aws-statefile-s3-bucket }}" \
+          -backend-config="key=${{ inputs.aws-statefile-key }}" \
+          -backend-config="region=${{ inputs.aws-region }}" \
+          -backend-config="dynamodb_table=${{ inputs.aws-lock-dynamodb-table }}"
 
       - name: Terraform Validate
-        run: terraform validate
+        run: terraform -chdir=terraform validate
 
       - name: Terraform Plan
         if: ${{ inputs.destroy != 'true' }}
-        run: terraform plan
+        run: terraform -chdir=terraform plan
 
       - name: Terraform Apply
         if: ${{ inputs.destroy != 'true' }}
-        run: terraform apply -auto-approve
+        run: terraform -chdir=terraform apply -auto-approve
 
       - name: Terraform Destroy
         if: ${{ inputs.destroy == 'true' }}
-        run: terraform destroy -auto-approve
+        run: terraform -chdir=terraform destroy -auto-approve
