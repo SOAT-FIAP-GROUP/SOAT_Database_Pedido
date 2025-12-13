@@ -18,35 +18,29 @@ on:
       aws-lock-dynamodb-table:
         type: string
         required: true
+      aws-assume-role-arn:
+        type: string
+        required: true
       destroy:
         type: string
         required: false
         default: 'false'
-    secrets:
-      aws-assume-role-arn:
-        required: true
 
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+      - uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: 1.3.2
+          terraform_version: 1.8.3
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.aws-assume-role-arn }}
-          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          role-session-name: GitHubOIDC
           aws-region: ${{ inputs.aws-region }}
 
       - name: Terraform Init
@@ -60,23 +54,17 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Terraform Destroy
-        if:  ${{ inputs.destroy == 'true' }}
-        id: terraform-destroy
-        run: |
-          terraform workspace select ${{ inputs.environment }} || terraform workspace new ${{ inputs.environment }}
-          terraform destroy -auto-approve
 
       - name: Terraform Plan
         if: ${{ inputs.destroy != 'true' }}
-        id: terraform-plan
-        run: |
-          terraform workspace select ${{ inputs.environment }} || terraform workspace new ${{ inputs.environment }}
-          terraform plan -out="${{ inputs.environment }}.plan"
+        run: terraform plan
+
 
       - name: Terraform Apply
         if: ${{ inputs.destroy != 'true' }}
-        id: terraform-apply
-        run: |
-          terraform workspace select ${{ inputs.environment }} || terraform workspace new ${{ inputs.environment }}
-          terraform apply "${{ inputs.environment }}.plan"
+        run: terraform apply -auto-approve
+
+
+      - name: Terraform Destroy
+        if: ${{ inputs.destroy == 'true' }}
+        run: terraform destroy -auto-approve
