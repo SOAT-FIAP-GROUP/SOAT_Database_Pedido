@@ -1,22 +1,34 @@
 variable "aws_region" {
-  type    = string
+  type = string
   default = "us-east-1"
 }
 
-variable "bucket" {
-  type    = string
-  default = "terraform-692614315984-statefile"
+
+variable "db_instance_identifier" {
+  type = string
+  default = "mariadb-soat-pedido"
 }
 
-variable "local_name" {
-  type = map(string)
-  default = {
-    name = "lanchonete-app"
-    env  = "dev"
-  }
+
+variable "vpc_name" {
+  type = string
+  default = "vpc-soat"
 }
 
-variable "vpc_subnets_count" {
-  type    = number
-  default = 2
+
+variable "subnet_names" {
+  type = list(string)
+  default = ["subnet-private1", "subnet-private2"]
+}
+
+
+variable "security_group_name" {
+  type = string
+  default = "security-group-rds-mariadb-pedido"
+}
+
+
+variable "db_subnet_group_name" {
+  type = string
+  default = "db-subnet-group-dev"
 }
