@@ -19,4 +19,5 @@ jobs:
       aws-statefile-key: "env:/dev/rds/terraform.tfstate"
       aws-lock-dynamodb-table: "692614315984-terraform-lock"
       destroy: "false"
+    secrets:
       aws-assume-role-arn: "arn:aws:iam::692614315984:role/TechChallenge-Fase4-Role"
