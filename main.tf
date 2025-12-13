@@ -7,6 +7,9 @@ data "terraform_remote_state" "network" {
   }
 }
 
+# configura github
+
+# configura variaveis de ambiente
 data "aws_ssm_parameter" "db_username" {
   name = "SPRING_DATASOURCE_USERNAME"
 }
@@ -24,6 +27,7 @@ resource "aws_security_group" "rds" {
   depends_on = [data.terraform_remote_state.network]
 }
 
+# config aplicação
 resource "aws_security_group" "eks" {
   name        = "${local.name}_outboud_eks_to_rds"
   description = "Allow MariaDB outbound traffic at EKS nodes to RDS"
@@ -32,12 +36,14 @@ resource "aws_security_group" "eks" {
   depends_on = [data.terraform_remote_state.network]
 }
 
+# configura subnets
 resource "aws_db_subnet_group" "mydb" {
   name       = local.name
   subnet_ids = data.terraform_remote_state.network.outputs.private_subnets
   tags       = local.tags
 }
 
+#criando banco
 resource "aws_db_instance" "mydb" {
   identifier             = local.name
   instance_class         = "db.t3.micro"
