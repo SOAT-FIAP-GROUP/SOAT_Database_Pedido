@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5be371f6-c539-4014-a757-82975bde8ddf" name="Changes" comment="configurando a infra">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
+    <list default="true" id="5be371f6-c539-4014-a757-82975bde8ddf" name="Changes" comment="ajustes infra">
+      <change afterPath="$PROJECT_DIR$/terraform/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/modules/rds/main.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/modules/rds/outputs.tf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/terraform/modules/rds/variables.tf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/backend.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/locals.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/outputs.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/provider.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rds.tf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/variables.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version.tf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +68,12 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/vmati/Projetos/SOAT_Database_Produto&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vmati\Projetos\SOAT_Database_Pedido\terraform\modules\rds" />
+      <recent name="C:\Users\vmati\Projetos\SOAT_Database_Pedido\terraform" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -92,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765640286005</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ajustes infra">
+      <option name="closed" value="true" />
+      <created>1765642139342</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765642139342</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -109,6 +133,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit inicial" />
     <MESSAGE value="configurando a infra" />
-    <option name="LAST_COMMIT_MESSAGE" value="configurando a infra" />
+    <MESSAGE value="ajustes infra" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes infra" />
   </component>
 </project>
