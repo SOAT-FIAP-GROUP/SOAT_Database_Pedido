@@ -18,26 +18,29 @@ on:
       aws-lock-dynamodb-table:
         type: string
         required: true
-      aws-assume-role-arn:
-        type: string
-        required: true
       destroy:
         type: string
         required: false
-        default: 'false'
+        default: "false"
+    secrets:
+      aws-assume-role-arn:
+        required: true
 
 jobs:
   terraform:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: hashicorp/setup-terraform@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.8.3
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.aws-assume-role-arn }}
           role-session-name: GitHubOIDC
@@ -54,16 +57,13 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-
       - name: Terraform Plan
         if: ${{ inputs.destroy != 'true' }}
         run: terraform plan
 
-
       - name: Terraform Apply
         if: ${{ inputs.destroy != 'true' }}
         run: terraform apply -auto-approve
-
 
       - name: Terraform Destroy
         if: ${{ inputs.destroy == 'true' }}
