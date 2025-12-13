@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5be371f6-c539-4014-a757-82975bde8ddf" name="Changes" comment="ajustes infra">
-      <change afterPath="$PROJECT_DIR$/terraform/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/rds/main.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/rds/outputs.tf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terraform/modules/rds/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/backend.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locals.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/outputs.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/outputs.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/provider.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rds.tf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/variables.tf" beforeDir="false" afterPath="$PROJECT_DIR$/terraform/variables.tf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.tf" beforeDir="false" />
+    <list default="true" id="5be371f6-c539-4014-a757-82975bde8ddf" name="Changes" comment="ajustes infra - teste 2">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/terraform.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/terraform.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765642139342</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajustes infra - teste 2">
+      <option name="closed" value="true" />
+      <created>1765645498261</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765645498263</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +131,7 @@
     <MESSAGE value="Commit inicial" />
     <MESSAGE value="configurando a infra" />
     <MESSAGE value="ajustes infra" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajustes infra" />
+    <MESSAGE value="ajustes infra - teste 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes infra - teste 2" />
   </component>
 </project>
