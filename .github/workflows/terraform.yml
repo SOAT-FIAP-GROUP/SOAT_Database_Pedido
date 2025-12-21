@@ -73,3 +73,4 @@ jobs:
       - name: Terraform Destroy
         if: ${{ inputs.destroy == 'true' }}
         run: terraform -chdir=terraform destroy -auto-approve
+
